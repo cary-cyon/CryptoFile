@@ -1,0 +1,28 @@
+﻿<Window x:Class="Crypto.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Crypto"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        DataContext="{StaticResource ApplicationViewModel}">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Путь к файлу"/>
+            <TextBlock Text="{Binding CurrentPath}"/>
+            <Button Command="{Binding SetPathCommand}">Выберете путь</Button>
+            <TextBlock Text="Метод шифрования"/>
+            <ComboBox ItemsSource="{Binding CryptoMethods}" SelectedIndex="0">
+                
+            </ComboBox>
+            <TextBox Text="{Binding Key}"/>
+            <Button Command="{Binding EncryptCurrentFileCommand}">
+                Защифровать
+            </Button>
+            <Button Command="{Binding DecryptCurrentFileCommand}">
+                Расшифровать 
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
